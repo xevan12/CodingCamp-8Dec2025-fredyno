@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ebe9e9;
+    height: 100vh;
+}
+
+.CONTAINER-NAVBAR {
+    background-image: linear-gradient(to right, #a5a5a5, #e6e6e6);
+    width: 100%;
+}
+
+.ul-navbar {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+
+.li-navbar {
+    list-style-type: none;
+    padding: 20px;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.li-navbar:hover {
+    background-color: rgb(199, 199, 199);
+    transition: .5s ease-in-out;
+    transition-delay: .3s;
+    border-radius: 3px;
+}
+.a-navbar {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.main {
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    max-width: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #d4d3d3;
+    padding: 20px;
+    height: 60vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.border-rounded {
+    margin-bottom: 4px;
+    border-radius: 8px;
+}
+
+.radio {
+    margin: 0 8px 8px 0;
+    margin-bottom: 4px;
+}
+
+.add-button, .delete-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    white-space: 100%;
+}
+
+.gender {
+    display: flex; 
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0
+}
+
+.button-add {
+    float: right;
+}
+
+section {
+    display: flex !important;
+}
+
