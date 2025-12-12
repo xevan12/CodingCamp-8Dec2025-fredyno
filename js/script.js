@@ -11,13 +11,26 @@
   const inputName = document.getElementById('todo-input');
   const inputActivity = document.getElementById('todo-input2');
   const inputDate = document.getElementById('todo-input3');
+  const categorySelect = document.getElementById('todo-category');
   const deleteBtn = document.getElementById('delete-button');
   const listEl = document.getElementById('todo-list');
   const emptyMessage = document.getElementById('empty-message');
+  const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+  let activeFilter = 'all';
 
   let tasks = loadTasks();
   console.log('[TODO] loaded', tasks.length, 'tasks');
   render();
+
+  // small, concise filter handling
+  if (filterButtons.length){
+    filterButtons.forEach(btn => btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter || 'all';
+      render();
+    }));
+  }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -26,6 +39,7 @@
     const date = (inputDate && inputDate.value) || '';
     const genderEl = form.querySelector('input[name="Gender"]:checked');
     const gender = genderEl ? genderEl.value : '';
+    const category = (categorySelect && categorySelect.value) || 'medium';
 
     if (!activity) {
       console.log('[TODO] submit ignored — activity empty');
@@ -33,7 +47,7 @@
       return;
     }
 
-    const task = { id: Date.now().toString(), name, activity, date, gender, done: false };
+    const task = { id: Date.now().toString(), name, activity, date, gender, category, done: false };
     tasks.push(task);
     saveTasks();
     console.log('[TODO] added task', task.id, task.activity);
@@ -85,6 +99,7 @@
     if (emptyMessage) emptyMessage.style.display = 'none';
 
     tasks.forEach(t => {
+      if (activeFilter !== 'all' && (t.category || 'medium') !== activeFilter) return;
       const li = document.createElement('li');
       li.dataset.id = t.id;
       li.style.display = 'contents';
@@ -98,7 +113,14 @@
         return cell;
       };
 
-      li.appendChild(createCell(t.name));
+      const nameCell = createCell(t.name);
+      const cat = (t.category || 'medium');
+      const badge = document.createElement('span');
+      badge.className = `category-badge category-${cat}`;
+      badge.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+      nameCell.appendChild(badge);
+      li.dataset.category = cat;
+      li.appendChild(nameCell);
       li.appendChild(createCell(t.activity));
       li.appendChild(createCell(t.date));
       li.appendChild(createCell(t.gender));

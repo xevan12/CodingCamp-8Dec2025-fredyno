@@ -34,17 +34,35 @@
             <input type="text" class="border-rounded" id="todo-input" placeholder="Nama"><br>
             <input type="text" class="border-rounded" id="todo-input2" placeholder="Kegiatan">
             <input type="date" class="border-rounded" id="todo-input3" placeholder="Tanggal"><br>
+          
             <div class="gender">
                 <label for="todo-input4">PRIA
                     <input type="radio" id="todo-input4" name="Gender" value="Pria" checked></label>
                 <label for="todo-input5">WANITA
                     <input type="radio" id="todo-input5" name="Gender" value="Wanita"><br></div>
+            
+            
+                    <label for="todo-category">Category</label>
+            <select id="todo-category" class="border-rounded" name="category">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="difficult">Difficult</option>
+            </select>
+           
+           
             <button type="button" id="delete-button">delete</button>
-            <button type="submit" id="add-button" class="button-add">add</button></div>
+            <button type="submit" id="add-button" class="button-add">add</button>
         </form>
 
         <section class="section">
             <h2>Daftar Kegiatan</h2>
+            <div class="filter-buttons" id="filter-buttons">
+                <button type="button" data-filter="all" class="filter-btn active">All</button>
+                <button type="button" data-filter="easy" class="filter-btn">Easy</button>
+                <button type="button" data-filter="medium" class="filter-btn">Medium</button>
+                <button type="button" data-filter="difficult" class="filter-btn">Difficult</button>
+            </div>
+            
             <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
                 <!-- To-Do items wil be added here dynamically -->
             <p id="empty-message" class="empty-message">Tidak ada kegiatan — Tambahkan kegiatan</p>
