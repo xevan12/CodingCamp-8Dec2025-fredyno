@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -35,8 +35,10 @@
             <input type="text" class="border-rounded" id="todo-input2" placeholder="Kegiatan">
             <input type="date" class="border-rounded" id="todo-input3" placeholder="Tanggal"><br>
             <div class="gender">
-            <input type="radio" id="todo-input4" name="Gender" value="Pria" checked> Pria
-            <input type="radio" id="todo-input4" name="Gender" value="Wanita"> Wanita<br></div>
+                <label for="todo-input4">PRIA
+                    <input type="radio" id="todo-input4" name="Gender" value="Pria" checked></label>
+                <label for="todo-input5">WANITA
+                    <input type="radio" id="todo-input5" name="Gender" value="Wanita"><br></div>
             <div class="buttons">
             <button type="button" id="delete-button">delete</button>
             <button type="submit" id="add-button" class="button-add">add</button></div>
@@ -44,14 +46,14 @@
 
         <section class="section">
             <h2>Daftar Kegiatan</h2>
-            <ul id="todo-list" style="width: 100%;" class="todo-list" aria-live="polite"></ul>
+            <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
                 <!-- To-Do items wil be added here dynamically -->
-            <p id="empty-message" class="empty-message">Tidak ada kegiatan-Tambahkan Kegiatan</p>
+            <p id="empty-message" class="empty-message">Tidak ada kegiatan — Tambahkan kegiatan</p>
         </section>
         
 
  
     </main>
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
